@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  aspic-ws:
+    build: .
+    container_name: aspic-ws
+    ports:
+      - "8888:80"
+    volumes:
+    - ./src:/app
+
+  aspic-mongo:
+    container_name: aspic-ws-mongo
+    image: mongo
+    volumes:
+    - aspic-ws-mongo-volume:/data/db
+    ports:
+    - "27017:27017"
+
+  dung-o-matic:
+    container_name: aspic-ws-dung-o-matic
+    image: argtech/dung-o-matic:0.1
+
+volumes:
+  aspic-ws-mongo-volume:
+   external: false
+   driver: local

@@ -1,0 +1,61 @@
+post:
+  summary: Evaluate the given Argumentation Theory
+  responses:
+    '200':
+      description: OK
+  parameters:
+    - name: body
+      in: body
+      required: true
+      description: The Argumentation Theory to evaluate
+      schema:
+        type: object
+        properties:
+          semantics:
+            type: string
+          ordering:
+            type: string
+          transposition:
+            type: boolean
+            default: false
+          query:
+            type: string
+          theory:
+            type: object
+            properties:
+              axioms:
+                type: array
+                items:
+                  type: string
+              premises:
+                type: array
+                items:
+                  type: string
+              assumptions:
+                type: array
+                items:
+                  type: string
+              kbPrefs:
+                type: array
+                items:
+                  type: string
+              rules:
+                type: object
+                properties:
+                  <label>:
+                    type: string
+              rulePrefs:
+                type: array
+                items:
+                  type: string
+              contrariness:
+                type: array
+                items:
+                  type: string
+
+    - name: save
+      description: "Should the Argumentation Theory be saved? (default: false)"
+      in: query
+      required: false
+      schema:
+        type: boolean

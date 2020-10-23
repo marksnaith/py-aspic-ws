@@ -1,0 +1,2 @@
+git+https://github.com/arg-tech/py-aspic.git@master#egg=pyaspic
+pymongo==3.9.0

@@ -1,0 +1,12 @@
+get:
+  description: Retreive the Argumentation Theory with the given ID
+  responses:
+    '200':
+      description: OK
+    '404':
+      description: Not found
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: The ID of the theory to retreive
